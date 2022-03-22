@@ -65,27 +65,29 @@ function App() {
             style={{ gap: 10 }}
           >
             <H3 css={undefined}>Temperamento</H3>
-            <H3 css={undefined}>Coincidencias</H3>
-            {assessQuestionaire(state).map((s) => {
-              const valuation = valuations.find((v) => v.id === s[0])!;
-              const count = s[1];
-              return (
-                <React.Fragment key={s[0]}>
-                  <Box>
+            <H3 css={undefined}>Puntos</H3>
+            {assessQuestionaire(state)
+              .slice(0, 3)
+              .map((s) => {
+                const valuation = valuations.find((v) => v.id === s[0])!;
+                const count = s[1];
+                return (
+                  <React.Fragment key={s[0]}>
                     <Box>
-                      <Link
-                        href={`#${valuation.id}`}
-                        onClick={() => setShowModal(false)}
-                      >
-                        <strong>{valuation.name}</strong>
-                      </Link>
+                      <Box>
+                        <Link
+                          href={`#${valuation.id}`}
+                          onClick={() => setShowModal(false)}
+                        >
+                          <strong>{valuation.name}</strong>
+                        </Link>
+                      </Box>
+                      <Box fontSize="small">{valuation.achronym}</Box>
                     </Box>
-                    <Box fontSize="small">{valuation.achronym}</Box>
-                  </Box>
-                  <Box textAlign="center">{count}</Box>
-                </React.Fragment>
-              );
-            })}
+                    <Box textAlign="center">{count}</Box>
+                  </React.Fragment>
+                );
+              })}
           </Box>
         </Dialog>
       )}

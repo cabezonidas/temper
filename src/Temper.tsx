@@ -1,5 +1,4 @@
 import { H2, H3, Paragraph } from "@cabezonidas/shop-ui";
-import React from "react";
 
 type Props = {
   id: string;
@@ -26,6 +25,7 @@ export const Temper = ({
         id={id}
         color="#dd9b39"
         marginBottom="0px"
+        style={{ textTransform: "uppercase" }}
       >
         {name}
       </H2>
