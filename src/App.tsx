@@ -149,7 +149,13 @@ function App() {
       </Form>
       <Box width={"80%"} margin={"auto"}>
         {valuations.map((v) => (
-          <Temper key={v.id} id={v.id} {...v.temper} />
+          <Temper
+            key={v.id}
+            id={v.id}
+            name={v.name}
+            achronym={v.achronym}
+            {...v.temper}
+          />
         ))}
       </Box>
     </UiProvider>
